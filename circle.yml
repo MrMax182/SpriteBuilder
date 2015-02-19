@@ -4,9 +4,6 @@ checkout:
 
 test:
     override:
-        - rake build:generated
-        - cat Generated/Version.txt
-        - exit 1
         - rake test
     post:
         - mkdir -p $CIRCLE_TEST_REPORTS/junit/
@@ -17,6 +14,6 @@ deployment:
         commands:
             - rake package
     ex:
-        branch: experimental/circleciSign
+        branch: test/circleCiVersionGeneration
         commands:
             - rake package
