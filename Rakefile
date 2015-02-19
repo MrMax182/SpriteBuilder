@@ -173,7 +173,7 @@ end
 desc "Build SpriteBuilder distribution"
 task :package => [:clobber, BUILD_DIR, :build_requirements] do
 
-    #force generation of a new Version.txt with commandline value
+    #force generation of a new Version.txt 
     Rake::Task["build:generated"].invoke
 
     Rake::Task["package:app"].invoke

@@ -4,6 +4,9 @@ checkout:
 
 test:
     override:
+        - rake build:generated
+        - cat Generated/Version.txt
+        - exit 1
         - rake test
     post:
         - mkdir -p $CIRCLE_TEST_REPORTS/junit/
